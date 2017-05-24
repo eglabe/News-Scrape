@@ -39,6 +39,10 @@ db.once("open", function() {
     console.log("Mongoose connection successful.");
 });
 
+// Controller
+var routes = require("./controllers/newsController.js");
+app.use("/", routes);
+
 // Listen on PORT
 app.listen(PORT, function() {
     console.log("App running on port " + PORT);
