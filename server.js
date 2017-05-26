@@ -21,7 +21,7 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Make static files public
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 // Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
