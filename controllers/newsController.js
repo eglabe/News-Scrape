@@ -6,10 +6,11 @@ var express = require("express");
 var router = express.Router();
 
 var Article = require("../models/Articles.js");
+// var Comments = require(".models/Comments.js");
+// var Users = require("./models/Users.js");
 
 router.get("/scrape", function(req, res) {
     request("http://www.npr.org/sections/technology/", function(error, response, html) {
-
         var $ = cheerio.load(html);
 
         $("article.has-image").each(function(i, element) {
@@ -18,7 +19,6 @@ router.get("/scrape", function(req, res) {
             var teaserText = $(element).find('.item-info .teaser').text();
             var imageSource = $(element).find('.item-image img').attr('src');
 
-            // Save these results in an object that we'll push into the result array we defined earlier
             var article = new Article({
                 title: titleText,
                 link: linkText,
@@ -45,5 +45,4 @@ router.get("/scrape", function(req, res) {
     });
 });
 
-// Export routes for server.js to use.
 module.exports = router;
