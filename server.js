@@ -9,7 +9,7 @@ var Promise = require("bluebird");
 var PORT = process.env.PORT || 3000;
 
 // Models
-// var Articles = require("./models/Articles.js");
+var Articles = require("./models/Articles.js");
 // var Comments = require(".models/Comments.js");
 // var Users = require("./models/Users.js");
 
