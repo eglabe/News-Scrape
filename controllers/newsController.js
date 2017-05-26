@@ -5,6 +5,8 @@ var cheerio = require("cheerio");
 var express = require("express");
 var router = express.Router();
 
+var Article = require("../models/Articles.js");
+
 router.get("/scrape", function(req, res) {
     request("http://www.npr.org/sections/technology/", function(error, response, html) {
 
