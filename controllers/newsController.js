@@ -11,7 +11,6 @@ router.get("/scrape", function(req, res) {
     request("http://www.npr.org/sections/technology/", function(error, response, html) {
 
         var $ = cheerio.load(html);
-        var result = [];
 
         $("article.has-image").each(function(i, element) {
             var titleText = $(element).find('.item-info .title').text();
@@ -27,17 +26,22 @@ router.get("/scrape", function(req, res) {
                 image: imageSource
             });
 
-            article.save(function(err, data) {
-                if (err) {
-                    console.log(err);
+            Article.count({ 'link': linkText }, function(err, count) {
+                if (count === 0) {
+                    article.save(function(err, data) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            console.log(data);
+                        }
+                    });
                 } else {
-                    console.log(data);
+                    console.log("Article already exists in database");
                 }
             });
+
         });
 
-        // Log the result once cheerio analyzes each of its selected elements
-        console.log(result);
     });
 });
 
