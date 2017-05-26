@@ -9,6 +9,16 @@ var Article = require("../models/Articles.js");
 // var Comments = require(".models/Comments.js");
 // var Users = require("./models/Users.js");
 
+router.get("/home", function(req, res) {
+    Article.find({}).exec(function(e, data) {
+        var news = {
+            dbArticles: data
+        };
+        console.log(news);
+        res.render("index", news);
+    });
+});
+
 router.get("/scrape", function(req, res) {
     request("http://www.npr.org/sections/technology/", function(error, response, html) {
         var $ = cheerio.load(html);
