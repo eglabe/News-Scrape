@@ -55,7 +55,11 @@ router.get("/scrape", function(req, res) {
     });
 });
 
-router.post("/addComment", function(req, res) {
+router.post("/new-user-comment", function(req, res) {
+
+});
+
+router.post("/established-user-comment", function(req, res) {
 
 });
 
