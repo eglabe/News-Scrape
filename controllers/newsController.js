@@ -55,4 +55,8 @@ router.get("/scrape", function(req, res) {
     });
 });
 
+router.post("/addComment", function(req, res) {
+
+});
+
 module.exports = router;
