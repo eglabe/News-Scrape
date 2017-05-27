@@ -6,3 +6,18 @@
 body {
     background-color: lightgrey;
 }
+
+img {
+    width: 300px;
+    float: right;
+    padding-right: 5px;
+}
+
+#display-comment-panel {
+    clear: both;
+    margin-top: 5px;
+}
+
+#add-comment-panel {
+    width: 50%;
+}
