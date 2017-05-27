@@ -18,7 +18,11 @@ var ArticleSchema = new Schema({
     },
     image: {
         type: String
-    }
+    },
+    comment: [{
+        type: Schema.Types.ObjectId,
+        ref: "Comment"
+    }]
 });
 
 // Create the Article model with the ArticleSchema
