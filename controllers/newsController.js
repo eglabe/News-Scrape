@@ -6,8 +6,8 @@ var express = require("express");
 var router = express.Router();
 
 var Article = require("../models/Articles.js");
-var Comments = require(".models/Comments.js");
-var Users = require("./models/Users.js");
+var Comments = require("../models/Comments.js");
+var Users = require("../models/Users.js");
 
 router.get("/home", function(req, res) {
     Article.find({}).exec(function(e, data) {
